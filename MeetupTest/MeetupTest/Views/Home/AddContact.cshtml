@@ -1,0 +1,24 @@
+﻿@model MeetupTest.Models.Contact
+@{
+    ViewBag.Title = "AddContact";
+}
+
+<h2>Add Contact</h2>
+
+<div class="jumbotron">
+    <h1>Enter a name</h1>
+    @using (var form = Html.BeginForm("CreateContact", "Home", FormMethod.Post))
+    {
+
+        <p>
+            First Name: @Html.EditorFor(model => model.FirstName,
+           new { htmlAttributes = new { @class = "form-control" } }) @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+    </p>
+        <br />
+        <p>
+            Last Name: @Html.EditorFor(x => x.LastName,
+           new { htmlAttributes = new { @class = "form-control" } }) @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+    </p>
+        <input type="submit" value="Add Contact" name="submitContact" />
+    }
+</div>
